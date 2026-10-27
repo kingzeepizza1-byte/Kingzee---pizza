@@ -1,0 +1,1169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#eaf5ff">
+<meta name="description" content="Order fresh pizza from KINGZEE PIZZA. Real Pizza. Real Taste. For Everyone.">
+<title>KINGZEE PIZZA | Online Ordering</title>
+
+<style>
+:root{
+  --blue:#1675d1;
+  --deep:#104b88;
+  --light:#eaf5ff;
+  --pale:#f5faff;
+  --red:#e83e48;
+  --gold:#ffc94b;
+  --ink:#17324d;
+  --muted:#64768a;
+  --white:#fff;
+  --line:#dbe8f5;
+  --green:#188754;
+  --shadow:0 8px 26px rgba(24,75,125,.09);
+  --radius:18px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{min-height:100%;background:var(--pale);scroll-behavior:smooth}
+body{
+ margin:0;color:var(--ink);background:var(--pale);
+ font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+ font-size:15px;line-height:1.5;overflow-x:hidden;
+}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer;touch-action:manipulation}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{
+ outline:3px solid #8cc9ff;outline-offset:2px
+}
+img{display:block;max-width:100%}
+a{color:inherit}
+.hidden{display:none!important}
+h1,h2,h3,p{margin-top:0}
+h1,h2,h3{line-height:1.2}
+h1{font-size:clamp(1.8rem,5vw,3rem)}
+h2{font-size:1.5rem}
+h3{font-size:1.05rem}
+p{color:var(--muted)}
+button:disabled{opacity:.45;cursor:not-allowed}
+.container{width:min(1180px,100%);margin:auto;padding:18px}
+.topbar{
+ background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);
+ position:sticky;top:0;z-index:20;backdrop-filter:blur(12px)
+}
+.topinner{
+ width:min(1180px,100%);margin:auto;padding:10px 16px;
+ display:flex;align-items:center;justify-content:space-between;gap:12px
+}
+.brand{display:flex;align-items:center;gap:10px;min-width:0;cursor:pointer}
+.logo{
+ width:45px;height:45px;flex-shrink:0;border-radius:14px;
+ background:linear-gradient(145deg,#fff,#d9edff);border:1px solid #bcdcff;
+ display:grid;place-items:center;font-size:26px
+}
+.brandname{font-weight:950;letter-spacing:.3px;color:var(--deep);font-size:1rem}
+.brandtag{font-size:.7rem;color:var(--muted)}
+.header-actions{display:flex;gap:8px;align-items:center}
+.iconbtn{
+ position:relative;border:1px solid var(--line);background:#fff;color:var(--deep);
+ border-radius:13px;min-width:43px;height:43px;padding:8px;font-weight:800
+}
+.cartcount{
+ position:absolute;top:-7px;right:-5px;background:var(--red);color:#fff;
+ font-size:11px;min-width:19px;height:19px;border-radius:20px;
+ display:grid;place-items:center;padding:0 4px
+}
+.navstrip{
+ display:flex;gap:7px;overflow-x:auto;padding:9px 14px 12px;
+ scrollbar-width:none;max-width:1180px;margin:auto
+}
+.navstrip::-webkit-scrollbar{display:none}
+.navbtn{
+ flex:0 0 auto;border:1px solid var(--line);background:white;color:var(--deep);
+ border-radius:30px;padding:9px 14px;font-size:.83rem;font-weight:750
+}
+.navbtn.active{background:var(--blue);border-color:var(--blue);color:white}
+main{min-height:70vh}
+.page{display:none;animation:appear .18s ease}
+.page.active{display:block}
+@keyframes appear{from{opacity:.55;transform:translateY(3px)}to{opacity:1;transform:none}}
+.hero{
+ background:linear-gradient(120deg,#e0f1ff,#f5faff 58%,#d7eaff);
+ border:1px solid #d5e8fb;border-radius:26px;overflow:hidden;
+ display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:10px
+}
+.hero-copy{padding:clamp(20px,4vw,48px)}
+.eyebrow{
+ display:inline-block;background:#fff;border:1px solid #c9e2fa;
+ color:var(--blue);font-size:.76rem;font-weight:850;letter-spacing:.7px;
+ padding:6px 10px;border-radius:30px;margin-bottom:13px
+}
+.hero h1{margin-bottom:12px;color:var(--deep)}
+.hero h1 span{color:var(--red)}
+.hero-photo{height:100%;min-height:280px;position:relative}
+.hero-photo img{width:100%;height:100%;min-height:280px;object-fit:cover}
+.hero-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#e0f1ff00,transparent)}
+.btn{
+ border:0;border-radius:13px;padding:12px 16px;font-weight:800;
+ display:inline-flex;align-items:center;justify-content:center;gap:7px;
+ text-decoration:none;transition:transform .12s,filter .12s
+}
+.btn:active{transform:scale(.98)}
+.btn-primary{background:var(--blue);color:white}
+.btn-red{background:var(--red);color:white}
+.btn-light{background:#e9f4ff;color:var(--deep);border:1px solid #cfe5fa}
+.btn-white{background:#fff;color:var(--deep);border:1px solid var(--line)}
+.btn-green{background:#138653;color:#fff}
+.btn-small{padding:8px 11px;border-radius:10px;font-size:.82rem}
+.btn-block{width:100%}
+.button-row{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:10px;margin:26px 0 14px}
+.section-head h2{margin:0}
+.section-head p{margin:4px 0 0;font-size:.88rem}
+.text-link{border:0;background:none;color:var(--blue);font-weight:800;padding:8px 0}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.product-card{
+ background:white;border:1px solid var(--line);border-radius:var(--radius);
+ overflow:hidden;box-shadow:var(--shadow);min-width:0
+}
+.product-image{height:185px;background:#e4f1fd;position:relative;overflow:hidden}
+.product-image img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.product-card:hover .product-image img{transform:scale(1.025)}
+.product-body{padding:14px}
+.product-body h3{margin-bottom:5px}
+.product-body p{font-size:.84rem;margin:0 0 12px;min-height:38px}
+.price{font-size:1.05rem;color:var(--deep);font-weight:900}
+.product-actions{display:flex;gap:8px;margin-top:12px}
+.product-actions .btn{flex:1}
+.tag{display:inline-flex;border-radius:30px;padding:4px 9px;font-size:.72rem;font-weight:800;background:#eaf5ff;color:var(--deep)}
+.pill-red{background:#ffeded;color:#c82c37}
+.notice{padding:13px 15px;border:1px solid #d3e6f9;background:#eef7ff;border-radius:14px;color:var(--deep);font-size:.9rem}
+.panel{background:white;border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+.page-heading{margin-bottom:20px}
+.page-heading p{margin-bottom:0}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field label{font-weight:800;font-size:.87rem}
+.field input,.field select,.field textarea{
+ width:100%;min-width:0;border:1px solid #ccdeee;background:#fff;
+ border-radius:12px;padding:12px;color:var(--ink);outline:none
+}
+.field textarea{min-height:95px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--blue)}
+.full{grid-column:1/-1}
+.muted{color:var(--muted);font-size:.85rem}
+.empty{
+ background:white;border:1px dashed #bfd5e9;border-radius:18px;
+ padding:35px 20px;text-align:center
+}
+.empty .emoji{font-size:42px;margin-bottom:8px}
+.cart-layout{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(280px,.8fr);gap:18px;align-items:start}
+.cart-list{display:grid;gap:10px}
+.cart-item{
+ display:grid;grid-template-columns:76px minmax(0,1fr) auto;
+ gap:12px;align-items:center;background:#fff;border:1px solid var(--line);
+ border-radius:15px;padding:10px
+}
+.cart-item img{width:76px;height:76px;object-fit:cover;border-radius:11px;background:var(--light)}
+.cart-item h3{margin:0 0 5px}
+.cart-item p{font-size:.8rem;margin:0 0 5px}
+.qty{display:flex;align-items:center;gap:9px;margin-top:7px}
+.qty button{width:29px;height:29px;border:1px solid var(--line);background:#f2f8ff;border-radius:9px;font-weight:900}
+.remove{border:0;background:#fff0f0;color:#bd2934;border-radius:9px;padding:8px;font-weight:800}
+.summary-line{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line)}
+.summary-total{font-size:1.15rem;font-weight:950;color:var(--deep)}
+.sticky-summary{position:sticky;top:145px}
+.option-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.option-card{
+ background:white;border:2px solid var(--line);border-radius:15px;padding:14px;
+ cursor:pointer;text-align:left;color:var(--ink)
+}
+.option-card.selected{border-color:var(--blue);background:#eff7ff}
+.option-card strong{display:block;color:var(--deep);font-size:1rem}
+.option-card span{display:block;color:var(--muted);font-size:.82rem;margin-top:4px}
+.topping-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.topping{
+ display:flex;align-items:center;gap:9px;padding:11px;
+ border:1px solid var(--line);background:white;border-radius:12px
+}
+.topping input{width:18px;height:18px;accent-color:var(--blue)}
+.topping span{font-size:.88rem;font-weight:700;flex:1}
+.topping small{color:var(--muted);white-space:nowrap}
+.promo-card{display:grid;grid-template-columns:180px 1fr;gap:0;overflow:hidden}
+.promo-card .product-image{height:100%;min-height:180px}
+.promo-card .product-body{padding:18px}
+.promo-card .product-body p{min-height:0}
+.delivery-choice{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.choice{
+ border:2px solid var(--line);border-radius:14px;padding:15px;background:#fff;
+ color:var(--ink);text-align:left
+}
+.choice.selected{border-color:var(--blue);background:#eff7ff}
+.choice strong{display:block}
+.choice span{font-size:.82rem;color:var(--muted)}
+.footer{margin-top:36px;background:#e5f2ff;border-top:1px solid #d1e5fa}
+.footer-inner{width:min(1180px,100%);margin:auto;padding:24px 18px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer p{margin:5px 0;font-size:.85rem}
+.footer a{color:var(--deep);font-weight:800}
+.admin-shell{display:grid;grid-template-columns:220px minmax(0,1fr);gap:18px;align-items:start}
+.admin-nav{display:grid;gap:7px;position:sticky;top:140px}
+.admin-tab{border:1px solid var(--line);border-radius:11px;padding:11px;text-align:left;background:white;color:var(--deep);font-weight:800}
+.admin-tab.active{background:var(--blue);color:white;border-color:var(--blue)}
+.admin-panel{display:none}
+.admin-panel.active{display:block}
+.stat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.stat{background:#f0f7ff;border:1px solid var(--line);border-radius:14px;padding:14px}
+.stat strong{display:block;font-size:1.35rem;color:var(--deep)}
+.stat span{font-size:.8rem;color:var(--muted)}
+.admin-product,.admin-order{
+ display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)
+}
+.admin-product img{width:58px;height:58px;border-radius:10px;object-fit:cover;background:var(--light)}
+.admin-product .grow,.admin-order .grow{flex:1;min-width:0}
+.admin-product .grow strong,.admin-order .grow strong{display:block}
+.admin-product .grow small,.admin-order .grow small{color:var(--muted)}
+.preview-bar{background:#fff5d9;border:1px solid #ffe09b;border-radius:12px;padding:11px;margin-bottom:14px;font-size:.85rem}
+hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+.toast{
+ position:fixed;bottom:18px;left:50%;transform:translateX(-50%);
+ background:#17324d;color:white;padding:12px 17px;border-radius:12px;
+ box-shadow:var(--shadow);z-index:100;max-width:calc(100% - 30px);
+ font-weight:750;text-align:center
+}
+.modal-backdrop{position:fixed;inset:0;background:#112b4380;z-index:50;display:grid;place-items:center;padding:16px}
+.modal{width:min(480px,100%);max-height:90dvh;overflow:auto;background:#fff;border-radius:22px;padding:22px;box-shadow:var(--shadow)}
+.modal h2{margin-bottom:10px}
+.modal-actions{display:flex;gap:8px;margin-top:18px}
+.modal-actions .btn{flex:1}
+.bottom-nav{display:none}
+@media(max-width:760px){
+ .topinner{padding:9px 12px}
+ .brandtag{font-size:.64rem}
+ .logo{width:40px;height:40px}
+ .container{padding:13px}
+ .hero{grid-template-columns:1fr}
+ .hero-copy{padding:22px 20px 10px}
+ .hero-photo{min-height:200px;height:210px}
+ .hero-photo img{min-height:200px;height:210px}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .product-image{height:135px}
+ .product-body{padding:11px}
+ .product-body p{font-size:.79rem;min-height:44px}
+ .product-actions{flex-direction:column;gap:6px}
+ .product-actions .btn{width:100%}
+ .cart-layout{grid-template-columns:1fr}
+ .sticky-summary{position:static}
+ .admin-shell{grid-template-columns:1fr}
+ .admin-nav{position:static;display:flex;overflow-x:auto;gap:6px;padding-bottom:5px}
+ .admin-tab{flex:0 0 auto;white-space:nowrap}
+ .stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .promo-card{grid-template-columns:120px 1fr}
+ .promo-card .product-image{min-height:160px}
+ .footer-inner{padding-bottom:80px}
+ .bottom-nav{
+  display:flex;position:fixed;bottom:0;left:0;right:0;z-index:25;
+  background:#fff;border-top:1px solid var(--line);
+  padding:7px 4px calc(7px + env(safe-area-inset-bottom));
+  justify-content:space-around;gap:3px
+ }
+ .bottom-nav button{
+  border:0;background:none;color:var(--muted);font-size:.68rem;
+  font-weight:800;padding:5px 4px;display:flex;flex-direction:column;
+  align-items:center;gap:3px;min-width:0
+ }
+ .bottom-nav button span:first-child{font-size:19px}
+ .bottom-nav button.active{color:var(--blue)}
+}
+@media(max-width:380px){
+ .grid{grid-template-columns:1fr 1fr}
+ .product-image{height:115px}
+ .product-body h3{font-size:.95rem}
+ .product-body .price{font-size:.95rem}
+ .cart-item{grid-template-columns:58px minmax(0,1fr) auto;gap:8px}
+ .cart-item img{width:58px;height:58px}
+ .topping-grid{grid-template-columns:1fr}
+ .promo-card{grid-template-columns:1fr}
+ .promo-card .product-image{height:160px}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+ <div class="topinner">
+  <div class="brand" onclick="go('home')" role="button" tabindex="0" aria-label="KINGZEE PIZZA home">
+   <div class="logo">👑</div>
+   <div>
+    <div class="brandname">KINGZEE PIZZA</div>
+    <div class="brandtag">Real Pizza. Real Taste. For Everyone.</div>
+   </div>
+  </div>
+  <div class="header-actions">
+   <button class="iconbtn" onclick="go('cart')" aria-label="Open order">🛒<span class="cartcount" id="cartCount">0</span></button>
+   <button class="iconbtn" onclick="go('contact')" aria-label="Contact us">☎️</button>
+  </div>
+ </div>
+ <nav class="navstrip" aria-label="Main navigation">
+  <button class="navbtn active" data-page="home" onclick="go('home')">Home</button>
+  <button class="navbtn" data-page="menu" onclick="go('menu')">Menu</button>
+  <button class="navbtn" data-page="builder" onclick="go('builder')">Create Your Pizza</button>
+  <button class="navbtn" data-page="cart" onclick="go('cart')">My Order</button>
+  <button class="navbtn" data-page="promotions" onclick="go('promotions')">Promotions</button>
+  <button class="navbtn" data-page="contact" onclick="go('contact')">Contact</button>
+ </nav>
+</header>
+
+<main>
+<!-- HOME -->
+<section class="page active" id="page-home">
+ <div class="container">
+  <div class="hero">
+   <div class="hero-copy">
+    <span class="eyebrow">FRESHLY MADE • FULL OF FLAVOUR</span>
+    <h1>Real Pizza.<br><span>Real Taste.</span></h1>
+    <p>Good Food, Brighter Days! Find your favourite pizza or build your own, just the way you like it.</p>
+    <div class="button-row">
+     <button class="btn btn-primary" onclick="go('menu')">Explore Our Menu →</button>
+     <button class="btn btn-red" onclick="go('builder')">🍕 Create Your Pizza</button>
+    </div>
+   </div>
+   <div class="hero-photo">
+    <img data-fallback="pizza" src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1000&q=85" alt="Freshly baked pizza" onerror="imageFallback(this)">
+   </div>
+  </div>
+
+  <div class="section-head">
+   <div><h2>Customer favourites</h2><p>Choose a pizza and add it to your order.</p></div>
+   <button class="text-link" onclick="go('menu')">View full menu →</button>
+  </div>
+  <div class="grid" id="featuredGrid"></div>
+
+  <div class="section-head"><div><h2>Make it your way</h2><p>Choose your base and your favourite extras.</p></div></div>
+  <div class="panel">
+   <div class="row">
+    <h3>Build your perfect pizza 🍕</h3>
+    <p>Choose your base price, add toppings and see your total before ordering.</p>
+    <button class="btn btn-primary" onclick="go('builder')">Create Your Pizza</button>
+   </div>
+  </div>
+
+  <div class="section-head"><div><h2>Latest promotions</h2><p>Check the offers currently published by the owner.</p></div><button class="text-link" onclick="go('promotions')">View all →</button></div>
+  <div id="homePromotions" class="grid"></div>
+ </div>
+</section>
+
+<!-- MENU -->
+<section class="page" id="page-menu">
+ <div class="container">
+  <div class="page-heading"><h1>Our Menu 🍕</h1><p>Choose your favourite, select a size and add it to your order.</p></div>
+  <div class="notice">Pizza sizes currently available: <strong>Small and Medium only.</strong></div>
+  <div class="section-head"><div><h2>Our pizzas</h2></div></div>
+  <div class="grid" id="menuGrid"></div>
+  <div class="section-head"><div><h2>Snacks</h2></div></div>
+  <div class="grid" id="snackGrid"></div>
+ </div>
+</section>
+
+<!-- CREATE PIZZA -->
+<section class="page" id="page-builder">
+ <div class="container">
+  <div class="page-heading"><h1>Create Your Pizza</h1><p>Choose a base and customise your toppings. Your price updates as you go.</p></div>
+  <div class="panel">
+   <h2>Step 1 — Choose your base</h2>
+   <div class="option-grid" id="baseOptions"></div>
+   <hr>
+   <h2>Step 2 — Add extra toppings</h2>
+   <p>Select any extras you want. The price shown is for one portion of each selected extra.</p>
+   <div class="topping-grid" id="toppingOptions"></div>
+   <hr>
+   <div class="form-grid">
+    <div class="field"><label for="customQty">Quantity</label><input id="customQty" type="number" min="1" max="20" step="1" value="1"></div>
+    <div class="field"><label>Price per pizza</label><div class="price" id="builderPrice">GH₵50.00</div></div>
+   </div>
+   <div class="summary-line"><span>Base price</span><strong id="builderBase">GH₵50.00</strong></div>
+   <div class="summary-line"><span>Extra toppings</span><strong id="builderExtras">GH₵0.00</strong></div>
+   <div class="summary-line"><span>Quantity</span><strong id="builderQtyText">1</strong></div>
+   <div class="summary-line summary-total"><span>Total</span><strong id="builderTotal">GH₵50.00</strong></div>
+   <div class="button-row">
+    <button class="btn btn-primary" onclick="addCustomPizza()">Add Custom Pizza to Order</button>
+    <button class="btn btn-light" onclick="resetBuilder()">Reset selections</button>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- CART -->
+<section class="page" id="page-cart">
+ <div class="container">
+  <div class="page-heading"><h1>My Order 🛒</h1><p>Review your items, change quantities or remove products before checkout.</p></div>
+  <div id="cartEmpty" class="empty">
+   <div class="emoji">🛒</div><h2>Your order is empty</h2>
+   <p>Explore the menu or create a custom pizza to get started.</p>
+   <button class="btn btn-primary" onclick="go('menu')">Browse Menu</button>
+   <button class="btn btn-light" onclick="go('builder')">Create Your Pizza</button>
+  </div>
+  <div id="cartContent" class="cart-layout hidden">
+   <div><div id="cartItems" class="cart-list"></div>
+    <div class="button-row"><button class="btn btn-light" onclick="go('menu')">＋ Add more items</button><button class="btn btn-red" onclick="clearCart()">Clear entire order</button></div>
+   </div>
+   <aside class="panel sticky-summary">
+    <h2>Order summary</h2>
+    <div class="summary-line"><span>Items subtotal</span><strong id="cartSubtotal">GH₵0.00</strong></div>
+    <div class="summary-line"><span>Delivery fee</span><strong id="cartDelivery">GH₵0.00</strong></div>
+    <div class="summary-line summary-total"><span>Total</span><strong id="cartTotal">GH₵0.00</strong></div>
+    <p class="muted">Any delivery fee shown is an estimate configured on this device. Confirm delivery charges with the business.</p>
+    <button class="btn btn-primary btn-block" onclick="go('checkout')">Continue to Checkout →</button>
+   </aside>
+  </div>
+ </div>
+</section>
+
+<!-- CHECKOUT -->
+<section class="page" id="page-checkout">
+ <div class="container">
+  <div class="page-heading"><h1>Checkout</h1><p>Enter your details and choose pickup or delivery.</p></div>
+  <form id="checkoutForm" class="cart-layout" onsubmit="submitOrder(event)">
+   <div class="panel">
+    <h2>1. Your details</h2>
+    <div class="form-grid">
+     <div class="field full"><label for="customerName">Full name *</label><input id="customerName" name="customerName" autocomplete="name" required maxlength="100" placeholder="Enter your name"></div>
+     <div class="field full"><label for="customerPhone">Phone number *</label><input id="customerPhone" name="customerPhone" type="tel" inputmode="tel" autocomplete="tel" required maxlength="25" placeholder="Your contact number"></div>
+    </div>
+    <hr>
+    <h2>2. How would you like to receive your order?</h2>
+    <div class="delivery-choice">
+     <button class="choice selected" id="pickupChoice" type="button" onclick="setFulfilment('pickup')"><strong>🏃 Pickup</strong><span>Collect your order</span></button>
+     <button class="choice" id="deliveryChoice" type="button" onclick="setFulfilment('delivery')"><strong>🛵 Delivery</strong><span>Have it delivered</span></button>
+    </div>
+    <div id="deliveryFields" class="form-grid hidden" style="margin-top:15px">
+     <div class="field full"><label for="deliveryAddress">Delivery address *</label><textarea id="deliveryAddress" placeholder="House number, area and directions"></textarea></div>
+     <div class="field full"><label for="deliveryLandmark">Nearby landmark (optional)</label><input id="deliveryLandmark" placeholder="A nearby shop, school or landmark"></div>
+    </div>
+    <div class="field" style="margin-top:15px"><label for="specialInstructions">Special instructions (optional)</label><textarea id="specialInstructions" placeholder="Any additional instructions for your order"></textarea></div>
+    <div class="button-row"><button class="btn btn-primary" type="submit">Send Order to WhatsApp →</button><button class="btn btn-light" type="button" onclick="go('cart')">Back to My Order</button></div>
+    <p class="muted">WhatsApp will open with your order message prepared. You must press Send in WhatsApp to submit it.</p>
+   </div>
+   <aside class="panel sticky-summary">
+    <h2>Order review</h2><div id="checkoutReview"></div>
+    <div class="summary-line"><span>Subtotal</span><strong id="checkoutSubtotal">GH₵0.00</strong></div>
+    <div class="summary-line"><span>Delivery fee</span><strong id="checkoutDelivery">GH₵0.00</strong></div>
+    <div class="summary-line summary-total"><span>Total</span><strong id="checkoutTotal">GH₵0.00</strong></div>
+   </aside>
+  </form>
+ </div>
+</section>
+
+<!-- PROMOTIONS -->
+<section class="page" id="page-promotions">
+ <div class="container">
+  <div class="page-heading"><h1>Promotions & Updates 🎉</h1><p>See offers published by KINGZEE PIZZA.</p></div>
+  <div id="promotionList" class="grid"></div>
+ </div>
+</section>
+
+<!-- CONTACT -->
+<section class="page" id="page-contact">
+ <div class="container">
+  <div class="page-heading"><h1>Contact KINGZEE PIZZA</h1><p>Questions about the menu or your order? Contact us directly.</p></div>
+  <div class="grid">
+   <div class="panel"><div style="font-size:30px">💬</div><h3>WhatsApp Orders</h3><p>Send your order to our ordering number.</p><a class="btn btn-green" href="https://wa.me/233559114251" target="_blank" rel="noopener">Open WhatsApp</a></div>
+   <div class="panel"><div style="font-size:30px">☎️</div><h3>Call Us</h3><p>For enquiries and other assistance.</p><a class="btn btn-light" href="tel:+233554671081">Call 0554 67 10 81</a></div>
+   <div class="panel"><div style="font-size:30px">✉️</div><h3>Email</h3><p>Send us an email.</p><a class="btn btn-light" href="mailto:kingzeepizza1@gmail.com">Email Us</a></div>
+  </div>
+  <div class="panel" style="margin-top:16px"><h2>Find us</h2><p>Adenta/Frafraha, Greater Accra, Ghana.</p><h3>Real Pizza. Real Taste. For Everyone.</h3><p>Good Food, Brighter Days!</p></div>
+ </div>
+</section>
+
+<!-- OWNER LOGIN -->
+<section class="page" id="page-owner-login">
+ <div class="container">
+  <div class="panel" style="max-width:470px;margin:24px auto">
+   <div style="font-size:38px">🔐</div><h1>Owner Access</h1>
+   <p>Enter your owner PIN to open the dashboard.</p>
+   <form id="ownerLoginForm">
+    <div class="field"><label for="ownerPinInput">Owner PIN</label><input id="ownerPinInput" type="password" inputmode="numeric" autocomplete="current-password" maxlength="20" required placeholder="Enter your PIN"></div>
+    <div class="button-row"><button class="btn btn-primary" type="submit">Unlock Dashboard</button><button class="btn btn-light" type="button" onclick="go('home')">Back to website</button></div>
+   </form>
+   <p class="muted" style="margin-top:15px">Important: this frontend-only PIN gate is not suitable for protecting confidential business information. A backend is required for genuine security.</p>
+  </div>
+ </div>
+</section>
+
+<!-- OWNER DASHBOARD -->
+<section class="page" id="page-owner">
+ <div class="container">
+  <div class="page-heading" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+   <div><h1>Owner Dashboard</h1><p>Manage products, promotions and your website preview.</p></div>
+   <button class="btn btn-red" onclick="ownerLogout()">Lock Dashboard</button>
+  </div>
+  <div class="preview-bar">⚠️ This dashboard saves data in this browser only. It does not sync to other devices or create a secure shared order database.</div>
+  <div class="admin-shell">
+   <nav class="admin-nav">
+    <button class="admin-tab active" data-admin="overview" onclick="adminTab('overview')">📊 Overview</button>
+    <button class="admin-tab" data-admin="products" onclick="adminTab('products')">🍕 Products</button>
+    <button class="admin-tab" data-admin="promos" onclick="adminTab('promos')">🎉 Promotions</button>
+    <button class="admin-tab" data-admin="orders" onclick="adminTab('orders')">🧾 Local Orders</button>
+    <button class="admin-tab" data-admin="preview" onclick="adminTab('preview')">👁️ Website Preview</button>
+    <button class="admin-tab" data-admin="settings" onclick="adminTab('settings')">⚙️ Settings & PIN</button>
+   </nav>
+   <div>
+    <div class="admin-panel active" id="admin-overview">
+     <div class="panel"><h2>Business overview</h2><div class="stat-grid">
+      <div class="stat"><strong id="statProducts">0</strong><span>Products</span></div>
+      <div class="stat"><strong id="statPromos">0</strong><span>Promotions</span></div>
+      <div class="stat"><strong id="statOrders">0</strong><span>Locally recorded orders</span></div>
+     </div><hr><p>Orders sent directly to WhatsApp are not automatically recorded here. The order counter only includes orders saved locally by this website, if any.</p></div>
+    </div>
+
+    <div class="admin-panel" id="admin-products">
+     <div class="panel">
+      <h2 id="productFormTitle">Add a new product</h2>
+      <form id="productForm">
+       <input type="hidden" id="editProductId">
+       <div class="form-grid">
+        <div class="field full"><label for="prodName">Product name *</label><input id="prodName" required maxlength="100" placeholder="e.g. BBQ Chicken Pizza"></div>
+        <div class="field"><label for="prodCategory">Category *</label><select id="prodCategory"><option value="pizza">Pizza</option><option value="snack">Snack</option><option value="drink">Drink</option><option value="other">Other</option></select></div>
+        <div class="field"><label for="prodPrice">Single price (GH₵)</label><input id="prodPrice" type="number" min="0" step=".01" placeholder="0"></div>
+        <div class="field"><label for="prodSmall">Small price (GH₵)</label><input id="prodSmall" type="number" min="0" step=".01" placeholder="Optional"></div>
+        <div class="field"><label for="prodMedium">Medium price (GH₵)</label><input id="prodMedium" type="number" min="0" step=".01" placeholder="Optional"></div>
+        <div class="field full"><label for="prodDescription">Description / ingredients</label><textarea id="prodDescription" maxlength="500" placeholder="Describe the product and its ingredients"></textarea></div>
+        <div class="field full"><label for="prodImage">Choose or take a product photo</label><input id="prodImage" type="file" accept="image/*" capture="environment"><small class="muted">Choose a clear photo from your device. Images may be compressed before saving.</small><img id="productImagePreview" class="hidden" alt="New product preview" style="width:180px;height:130px;object-fit:cover;border-radius:12px"></div>
+        <div class="field full"><label><input type="checkbox" id="prodAvailable" checked> Product is available to customers</label></div>
+       </div>
+       <div class="button-row"><button class="btn btn-primary" type="submit">Save Product</button><button class="btn btn-light" type="button" onclick="resetProductForm()">Clear form</button></div>
+      </form>
+     </div>
+     <div class="panel" style="margin-top:14px"><h2>Current products</h2><div id="adminProductList"></div></div>
+    </div>
+
+    <div class="admin-panel" id="admin-promos">
+     <div class="panel">
+      <h2 id="promoFormTitle">Create a promotion</h2>
+      <form id="promoForm">
+       <input type="hidden" id="editPromoId">
+       <div class="form-grid">
+        <div class="field full"><label for="promoTitle">Promotion title *</label><input id="promoTitle" required maxlength="100" placeholder="e.g. Saturday Special"></div>
+        <div class="field full"><label for="promoDescription">Offer details *</label><textarea id="promoDescription" required maxlength="600" placeholder="Explain the offer clearly"></textarea></div>
+        <div class="field"><label for="promoPrice">Offer price (GH₵, optional)</label><input id="promoPrice" type="number" min="0" step=".01"></div>
+        <div class="field"><label for="promoStart">Start date</label><input id="promoStart" type="date"></div>
+        <div class="field"><label for="promoEnd">End date</label><input id="promoEnd" type="date"></div>
+        <div class="field full"><label for="promoImage">Promotion image (optional)</label><input id="promoImage" type="file" accept="image/*" capture="environment"><img id="promoImagePreview" class="hidden" alt="Promotion preview" style="width:180px;height:130px;object-fit:cover;border-radius:12px"></div>
+        <div class="field full"><label><input type="checkbox" id="promoPublished" checked> Publish this promotion on the public website</label></div>
+       </div>
+       <div class="button-row"><button class="btn btn-primary" type="submit">Save Promotion</button><button class="btn btn-light" type="button" onclick="resetPromoForm()">Clear form</button></div>
+      </form>
+     </div>
+     <div class="panel" style="margin-top:14px"><h2>Saved promotions</h2><div id="adminPromoList"></div></div>
+    </div>
+
+    <div class="admin-panel" id="admin-orders">
+     <div class="panel"><h2>Locally recorded orders</h2><p>Orders submitted using WhatsApp are not sent back to this page automatically. This section is only for data actually stored in this browser.</p><div id="adminOrderList"></div></div>
+    </div>
+
+    <div class="admin-panel" id="admin-preview">
+     <div class="panel"><h2>Website Preview</h2><p>Open the public pages using the buttons below. Product and promotion changes saved in this browser will be reflected in its public pages.</p>
+      <div class="button-row"><button class="btn btn-primary" onclick="go('home')">Preview Homepage</button><button class="btn btn-light" onclick="go('menu')">Preview Menu</button><button class="btn btn-light" onclick="go('promotions')">Preview Promotions</button></div>
+      <hr><p>To test a product, save it in Products, then open the public Menu page. To test a promotion, publish it and open Promotions.</p>
+     </div>
+    </div>
+
+    <div class="admin-panel" id="admin-settings">
+     <div class="panel">
+      <h2>Change Owner PIN</h2>
+      <p>Enter the current PIN, then your new PIN. Use at least four digits.</p>
+      <form id="changePinForm">
+       <div class="form-grid">
+        <div class="field full"><label for="currentPin">Current PIN</label><input id="currentPin" type="password" inputmode="numeric" required maxlength="20"></div>
+        <div class="field"><label for="newPin">New PIN</label><input id="newPin" type="password" inputmode="numeric" required minlength="4" maxlength="20"></div>
+        <div class="field"><label for="confirmPin">Confirm new PIN</label><input id="confirmPin" type="password" inputmode="numeric" required minlength="4" maxlength="20"></div>
+       </div>
+       <button class="btn btn-primary" style="margin-top:14px" type="submit">Change PIN</button>
+      </form>
+      <hr><h2>Website information</h2>
+      <p><strong>Business:</strong> KINGZEE PIZZA</p>
+      <p><strong>WhatsApp orders:</strong> 0559 11 42 51</p>
+      <p><strong>Email:</strong> kingzeepizza1@gmail.com</p>
+      <p><strong>Website:</strong> https://kp-nine-ruby.vercel.app/</p>
+      <hr><h3>Local data</h3><p>Export a backup of products and promotions saved in this browser. This does not export WhatsApp conversations.</p>
+      <button class="btn btn-light" onclick="exportData()">Export website data</button>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer class="footer">
+ <div class="footer-inner">
+  <div><strong>KINGZEE PIZZA 👑</strong><p>Real Pizza. Real Taste. For Everyone.</p><p>Good Food, Brighter Days!</p></div>
+  <div><p>Adenta/Frafraha, Greater Accra, Ghana</p><p><a href="https://wa.me/233559114251" target="_blank" rel="noopener">WhatsApp: 0559 11 42 51</a></p><p><a href="mailto:kingzeepizza1@gmail.com">kingzeepizza1@gmail.com</a></p></div>
+  <div><p><button class="text-link" onclick="go('owner-login')">Owner Access</button></p><p>© <span id="year"></span> KINGZEE PIZZA</p></div>
+ </div>
+</footer>
+
+<nav class="bottom-nav" aria-label="Quick navigation">
+ <button class="active" data-page="home" onclick="go('home')"><span>🏠</span><span>Home</span></button>
+ <button data-page="menu" onclick="go('menu')"><span>🍕</span><span>Menu</span></button>
+ <button data-page="builder" onclick="go('builder')"><span>✨</span><span>Create</span></button>
+ <button data-page="cart" onclick="go('cart')"><span>🛒</span><span>Order</span></button>
+ <button data-page="promotions" onclick="go('promotions')"><span>🎉</span><span>Offers</span></button>
+</nav>
+
+<div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+<div id="modalRoot"></div>
+
+<script>
+"use strict";
+
+/* ==========================================================
+   KINGZEE PIZZA — SINGLE FILE FRONTEND
+   Prices are in Ghana cedis (GH₵).
+   Storage is local to the current browser only.
+   ========================================================== */
+
+const WHATSAPP_NUMBER = "233559114251";
+const STORAGE = {
+ products:"kingzee_products_v1",
+ promos:"kingzee_promos_v1",
+ cart:"kingzee_cart_v1",
+ pin:"kingzee_owner_pin_v1",
+ orders:"kingzee_local_orders_v1",
+ delivery:"kingzee_delivery_fee_v1"
+};
+
+const money = n => "GH₵" + (Number(n)||0).toFixed(2);
+const uid = () => Date.now().toString(36)+Math.random().toString(36).slice(2,8);
+const esc = value => String(value ?? "").replace(/[&<>"']/g,c=>({
+ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+}[c]));
+const safeNumber = value => Math.max(0,Number(value)||0);
+const loadJSON = (key,fallback) => {
+ try {const v=localStorage.getItem(key);return v===null?fallback:JSON.parse(v)}
+ catch(e){return fallback}
+};
+const saveJSON = (key,value) => {
+ try{localStorage.setItem(key,JSON.stringify(value));return true}
+ catch(e){toast("Storage is full. Try a smaller photo or remove unused saved items.");return false}
+};
+
+const IMG = {
+ pizza:"https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=900&q=85",
+ meat:"https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?auto=format&fit=crop&w=900&q=85",
+ supreme:"https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=900&q=85",
+ margherita:"https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=900&q=85",
+ toppings:"https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?auto=format&fit=crop&w=900&q=85",
+ mini:"https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?auto=format&fit=crop&w=900&q=85",
+ snack:"https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=900&q=85",
+ drink:"https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=85"
+};
+
+const DEFAULT_PRODUCTS = [
+ {id:"meat-king",name:"Meat King",category:"pizza",small:60,medium:80,description:"Beef, sausage, mozzarella cheese and tomato sauce.",image:IMG.meat,available:true,featured:true},
+ {id:"supreme-king",name:"Supreme King",category:"pizza",small:65,medium:85,description:"Beef, chicken, sausage, onion, green pepper, mozzarella and tomato sauce.",image:IMG.supreme,available:true,featured:true},
+ {id:"margherita",name:"Margherita",category:"pizza",small:55,medium:70,description:"Tomato sauce and mozzarella cheese.",image:IMG.margherita,available:true,featured:true},
+ {id:"eight-topping",name:"Eight-Topping Pizza",category:"pizza",small:80,medium:124,description:"Beef, chicken, sausage, sweet corn, mushrooms, onion, tuna and green pepper. Tomato sauce and mozzarella included.",image:IMG.toppings,available:true,featured:true},
+ {id:"mini-pizza",name:"Mini Pizza",category:"snack",price:30,description:"A delicious mini pizza.",image:IMG.mini,available:true,featured:false}
+];
+
+const TOPPINGS = [
+ {name:"Beef",price:20},{name:"Chicken",price:15},
+ {name:"Sausage",price:20},{name:"Mushroom",price:20},
+ {name:"Sweet corn",price:15},{name:"Onion",price:15},
+ {name:"Green pepper",price:15},{name:"Tuna",price:20},
+ {name:"Extra cheese",price:20}
+];
+const BASES = [
+ {id:"small50",name:"Small — Option 1",size:"Small",price:50,description:"Custom small pizza base"},
+ {id:"small60",name:"Small — Option 2",size:"Small",price:60,description:"Custom small pizza base"},
+ {id:"medium80",name:"Medium — Option 1",size:"Medium",price:80,description:"Custom medium pizza base"},
+ {id:"medium100",name:"Medium — Option 2",size:"Medium",price:100,description:"Custom medium pizza base"}
+];
+
+let products = loadJSON(STORAGE.products,null);
+if(!Array.isArray(products)){products=structuredCloneSafe(DEFAULT_PRODUCTS);saveJSON(STORAGE.products,products)}
+let promos = loadJSON(STORAGE.promos,[]);
+if(!Array.isArray(promos))promos=[];
+let cart = loadJSON(STORAGE.cart,[]);
+if(!Array.isArray(cart))cart=[];
+let localOrders = loadJSON(STORAGE.orders,[]);
+if(!Array.isArray(localOrders))localOrders=[];
+let selectedBase = BASES[0].id;
+let selectedToppings = new Set();
+let fulfilment = "pickup";
+let ownerUnlocked = false;
+let productImageData = "";
+let promoImageData = "";
+let toastTimer;
+
+function structuredCloneSafe(value){return JSON.parse(JSON.stringify(value))}
+function persistCart(){saveJSON(STORAGE.cart,cart);updateCartCount()}
+function toast(message){
+ const el=document.getElementById("toast");
+ el.textContent=message;el.classList.remove("hidden");
+ clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.add("hidden"),2900);
+}
+function imageFallback(img){
+ if(img.dataset.fallbackDone)return;
+ img.dataset.fallbackDone="1";
+ const type=img.dataset.fallback||"pizza";
+ const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500"><defs><linearGradient id="g" x2="1" y2="1"><stop stop-color="#eaf5ff"/><stop offset="1" stop-color="#c9e4ff"/></linearGradient></defs><rect width="100%" height="100%" fill="url(#g)"/><text x="50%" y="46%" text-anchor="middle" font-size="100">🍕</text><text x="50%" y="72%" text-anchor="middle" font-family="Arial" font-size="28" font-weight="bold" fill="#104b88">KINGZEE PIZZA</text></svg>`;
+ img.src="data:image/svg+xml;charset=UTF-8,"+encodeURIComponent(svg);
+}
+function safeImage(url){
+ if(typeof url!=="string")return IMG.pizza;
+ if(url.startsWith("data:image/"))return url;
+ if(url.startsWith("https://")||url.startsWith("http://"))return url;
+ return IMG.pizza;
+}
+function go(page){
+ if(page==="owner"&&!ownerUnlocked){page="owner-login"}
+ document.querySelectorAll(".page").forEach(el=>el.classList.remove("active"));
+ const target=document.getElementById("page-"+page);
+ if(!target){page="home";document.getElementById("page-home").classList.add("active")}
+ else target.classList.add("active");
+ document.querySelectorAll("[data-page]").forEach(el=>el.classList.toggle("active",el.dataset.page===page));
+ if(page==="menu")renderMenu();
+ if(page==="home")renderHome();
+ if(page==="builder")renderBuilder();
+ if(page==="cart")renderCart();
+ if(page==="checkout")renderCheckout();
+ if(page==="promotions")renderPromotions();
+ if(page==="owner")renderAdmin();
+ window.scrollTo({top:0,behavior:"instant"});
+}
+function updateCartCount(){
+ document.getElementById("cartCount").textContent=cart.reduce((s,i)=>s+(Number(i.qty)||0),0);
+}
+function availableProducts(category){
+ return products.filter(p=>p.available!==false&&(!category||p.category===category));
+}
+function productImage(p){
+ return safeImage(p.image||IMG.pizza);
+}
+function productPriceLabel(p){
+ if(p.category==="pizza"&&p.small!=null&&p.medium!=null)return `Small ${money(p.small)} · Medium ${money(p.medium)}`;
+ return money(p.price);
+}
+function productCard(p){
+ const isPizza=p.category==="pizza"&&p.small!=null&&p.medium!=null;
+ const selectId="size-"+p.id.replace(/[^a-z0-9]/gi,"");
+ return `<article class="product-card">
+  <div class="product-image"><img src="${esc(productImage(p))}" data-fallback="pizza" alt="${esc(p.name)}" loading="lazy" onerror="imageFallback(this)"></div>
+  <div class="product-body">
+   <span class="tag">${esc(p.category||"product")}</span>
+   <h3 style="margin-top:8px">${esc(p.name)}</h3>
+   <p>${esc(p.description||"Freshly prepared with care.")}</p>
+   ${isPizza?`<div class="field"><label for="${selectId}">Choose size</label><select id="${selectId}"><option value="Small">Small — ${money(p.small)}</option><option value="Medium">Medium — ${money(p.medium)}</option></select></div>`:`<div class="price">${money(p.price)}</div>`}
+   <div class="product-actions"><button class="btn btn-primary btn-small" onclick="addProduct('${esc(p.id)}','${isPizza?selectId:""}')">Add to Order</button></div>
+  </div>
+ </article>`;
+}
+function renderMenu(){
+ document.getElementById("menuGrid").innerHTML=availableProducts("pizza").map(productCard).join("")||emptyMessage("No pizzas are currently available.");
+ document.getElementById("snackGrid").innerHTML=products.filter(p=>p.available!==false&&p.category!=="pizza").map(productCard).join("")||emptyMessage("No snacks or other products are currently available.");
+}
+function renderHome(){
+ const featured=availableProducts("pizza").slice(0,3);
+ document.getElementById("featuredGrid").innerHTML=featured.map(productCard).join("")||emptyMessage("Our menu is being updated.");
+ const active=publishedPromos().slice(0,3);
+ document.getElementById("homePromotions").innerHTML=active.map(promoCard).join("")||`<div class="panel"><h3>No current promotions</h3><p>Check back for updates from KINGZEE PIZZA.</p></div>`;
+}
+function emptyMessage(text){
+ return `<div class="empty" style="grid-column:1/-1"><div class="emoji">🍕</div><p>${esc(text)}</p></div>`;
+}
+function addProduct(id,sizeSelectId){
+ const p=products.find(x=>x.id===id);
+ if(!p||p.available===false){toast("This product is not currently available.");return}
+ let size="",price;
+ if(p.category==="pizza"&&p.small!=null&&p.medium!=null){
+  const sel=document.getElementById(sizeSelectId);
+  size=sel?sel.value:"Small";price=size==="Medium"?Number(p.medium):Number(p.small);
+ }else price=Number(p.price)||0;
+ const key=p.id+"|"+size;
+ const existing=cart.find(i=>i.key===key);
+ if(existing)existing.qty++;
+ else cart.push({key,id:p.id,name:p.name,size,price,qty:1,image:productImage(p),description:p.description||"",extras:[]});
+ persistCart();toast(p.name+" added to your order.");renderCart();
+}
+function builderCalculation(){
+ const base=BASES.find(b=>b.id===selectedBase)||BASES[0];
+ const extras=TOPPINGS.filter(t=>selectedToppings.has(t.name));
+ const extraTotal=extras.reduce((sum,t)=>sum+t.price,0);
+ const qty=Math.max(1,Math.min(20,parseInt(document.getElementById("customQty")?.value||"1",10)||1));
+ return {base,extras,extraTotal,unit:base.price+extraTotal,qty,total:(base.price+extraTotal)*qty};
+}
+function renderBuilder(){
+ document.getElementById("baseOptions").innerHTML=BASES.map(b=>`<button type="button" class="option-card ${b.id===selectedBase?"selected":""}" onclick="chooseBase('${b.id}')"><strong>${esc(b.name)}</strong><span>${money(b.price)}</span><span>${esc(b.description)}</span></button>`).join("");
+ document.getElementById("toppingOptions").innerHTML=TOPPINGS.map(t=>`<label class="topping"><input type="checkbox" ${selectedToppings.has(t.name)?"checked":""} onchange="toggleTopping('${esc(t.name)}',this.checked)"><span>${esc(t.name)}</span><small>+${money(t.price)}</small></label>`).join("");
+ updateBuilderPrice();
+}
+function chooseBase(id){selectedBase=id;renderBuilder()}
+function toggleTopping(name,checked){if(checked)selectedToppings.add(name);else selectedToppings.delete(name);updateBuilderPrice()}
+function updateBuilderPrice(){
+ const c=builderCalculation();
+ document.getElementById("builderPrice").textContent=money(c.unit);
+ document.getElementById("builderBase").textContent=money(c.base.price);
+ document.getElementById("builderExtras").textContent=money(c.extraTotal);
+ document.getElementById("builderQtyText").textContent=c.qty;
+ document.getElementById("builderTotal").textContent=money(c.total);
+}
+document.getElementById("customQty").addEventListener("input",updateBuilderPrice);
+function addCustomPizza(){
+ const c=builderCalculation();
+ const extras=c.extras.map(t=>({name:t.name,price:t.price}));
+ const name="Create Your Pizza — "+c.base.size;
+ const desc=extras.length?extras.map(t=>t.name).join(", "):"No extra toppings";
+ const key="custom|"+uid();
+ cart.push({key,id:"custom",name,size:c.base.size,price:c.unit,qty:c.qty,image:IMG.toppings,description:desc,extras,baseName:c.base.name,basePrice:c.base.price});
+ persistCart();toast("Your custom pizza has been added.");go("cart");
+}
+function resetBuilder(){selectedBase=BASES[0].id;selectedToppings.clear();document.getElementById("customQty").value=1;renderBuilder()}
+function cartSubtotal(){return cart.reduce((s,i)=>s+(Number(i.price)||0)*(Number(i.qty)||0),0)}
+function deliveryFee(){
+ if(fulfilment!=="delivery")return 0;
+ return safeNumber(loadJSON(STORAGE.delivery,0));
+}
+function cartTotal(){return cartSubtotal()+deliveryFee()}
+function renderCart(){
+ const empty=cart.length===0;
+ document.getElementById("cartEmpty").classList.toggle("hidden",!empty);
+ document.getElementById("cartContent").classList.toggle("hidden",empty);
+ if(empty)return;
+ document.getElementById("cartItems").innerHTML=cart.map((i,index)=>`
+ <div class="cart-item">
+  <img src="${esc(safeImage(i.image))}" alt="${esc(i.name)}" onerror="imageFallback(this)">
+  <div><h3>${esc(i.name)} ${i.size?"("+esc(i.size)+")":""}</h3><p>${esc(i.description||"")}</p><strong>${money(i.price)} each</strong>
+   <div class="qty"><button aria-label="Decrease quantity" onclick="changeQty(${index},-1)">−</button><strong>${i.qty}</strong><button aria-label="Increase quantity" onclick="changeQty(${index},1)">+</button></div>
+   ${i.extras?.length?`<button class="text-link" onclick="editCartExtras(${index})">Edit toppings</button>`:""}
+  </div>
+  <div style="text-align:right"><strong>${money(i.price*i.qty)}</strong><div style="margin-top:10px"><button class="remove" onclick="removeItem(${index})">Remove</button></div></div>
+ </div>`).join("");
+ updateCartSummary();
+}
+function updateCartSummary(){
+ const sub=cartSubtotal(),fee=deliveryFee(),total=sub+fee;
+ ["cartSubtotal","checkoutSubtotal"].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=money(sub)});
+ ["cartDelivery","checkoutDelivery"].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=money(fee)});
+ ["cartTotal","checkoutTotal"].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=money(total)});
+}
+function changeQty(index,delta){
+ if(!cart[index])return;cart[index].qty=Math.max(1,Math.min(99,cart[index].qty+delta));persistCart();renderCart();
+}
+function removeItem(index){cart.splice(index,1);persistCart();renderCart();toast("Item removed.")}
+function clearCart(){
+ if(!cart.length)return;
+ showModal("Clear your order?","This will remove every item from your current order.",[
+  {label:"Keep order",className:"btn-light",action:closeModal},
+  {label:"Clear order",className:"btn-red",action:()=>{cart=[];persistCart();renderCart();closeModal();toast("Order cleared.")}}
+ ]);
+}
+function editCartExtras(index){
+ const item=cart[index];if(!item||item.id!=="custom"){toast("This product's toppings cannot be edited here.");return}
+ showModal("Edit custom pizza","For an accurate updated price, remove this custom pizza and create it again using Create Your Pizza.",[
+  {label:"Close",className:"btn-primary",action:closeModal},
+  {label:"Remove item",className:"btn-red",action:()=>{removeItem(index);closeModal()}}
+ ]);
+}
+function setFulfilment(mode){
+ fulfilment=mode;
+ document.getElementById("pickupChoice").classList.toggle("selected",mode==="pickup");
+ document.getElementById("deliveryChoice").classList.toggle("selected",mode==="delivery");
+ document.getElementById("deliveryFields").classList.toggle("hidden",mode!=="delivery");
+ document.getElementById("deliveryAddress").required=mode==="delivery";
+ updateCartSummary();
+}
+function renderCheckout(){
+ if(!cart.length){go("cart");toast("Add an item before checkout.");return}
+ document.getElementById("checkoutReview").innerHTML=cart.map(i=>`<div class="summary-line"><span>${esc(i.name)} ${i.size?"("+esc(i.size)+")":""} × ${i.qty}</span><strong>${money(i.price*i.qty)}</strong></div>`).join("");
+ updateCartSummary();setFulfilment(fulfilment);
+}
+function submitOrder(event){
+ event.preventDefault();
+ if(!cart.length){toast("Your order is empty.");go("menu");return}
+ const name=document.getElementById("customerName").value.trim();
+ const phone=document.getElementById("customerPhone").value.trim();
+ const address=document.getElementById("deliveryAddress").value.trim();
+ if(!name||!phone){toast("Enter your name and phone number.");return}
+ if(fulfilment==="delivery"&&!address){toast("Enter your delivery address.");document.getElementById("deliveryAddress").focus();return}
+ const instructions=document.getElementById("specialInstructions").value.trim();
+ const landmark=document.getElementById("deliveryLandmark").value.trim();
+ const sub=cartSubtotal(),fee=deliveryFee(),total=sub+fee;
+ const lines=[
+  "🍕 KINGZEE PIZZA — NEW ORDER",
+  "Real Pizza. Real Taste. For Everyone!",
+  "",
+  "Customer: "+name,
+  "Phone: "+phone,
+  "Order type: "+(fulfilment==="pickup"?"PICKUP":"DELIVERY")
+ ];
+ if(fulfilment==="delivery"){lines.push("Address: "+address);if(landmark)lines.push("Landmark: "+landmark)}
+ lines.push("","ORDER ITEMS:");
+ cart.forEach((i,n)=>{
+  lines.push(`${n+1}. ${i.name}${i.size?" ("+i.size+")":""}`);
+  lines.push(`   Qty: ${i.qty} × ${money(i.price)} = ${money(i.qty*i.price)}`);
+  if(i.extras?.length)lines.push("   Extras: "+i.extras.map(x=>x.name).join(", "));
+  if(i.description)lines.push("   Details: "+i.description);
+ });
+ lines.push("","Subtotal: "+money(sub));
+ if(fulfilment==="delivery")lines.push("Delivery fee: "+money(fee));
+ lines.push("TOTAL: "+money(total));
+ if(instructions)lines.push("","Special instructions: "+instructions);
+ lines.push("","Order prepared from the KINGZEE PIZZA website.");
+ const url="https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(lines.join("\n"));
+ // Keep an optional local record only on this device.
+ const record={id:uid(),date:new Date().toISOString(),customer:name,phone,fulfilment,total,items:structuredCloneSafe(cart),sentToWhatsApp:false};
+ const ok=saveJSON(STORAGE.orders,[record,...localOrders].slice(0,100));
+ if(ok)localOrders=[record,...localOrders].slice(0,100);
+ window.open(url,"_blank","noopener");
+ toast("WhatsApp opened. Review your order and press Send.");
+}
+function publishedPromos(){
+ const today=new Date().toISOString().slice(0,10);
+ return promos.filter(p=>p.published!==false&&(!p.start||p.start<=today)&&(!p.end||p.end>=today));
+}
+function promoCard(p){
+ return `<article class="product-card promo-card">
+  <div class="product-image"><img src="${esc(safeImage(p.image||IMG.pizza))}" alt="${esc(p.title)}" loading="lazy" onerror="imageFallback(this)"></div>
+  <div class="product-body"><span class="tag pill-red">SPECIAL OFFER</span><h3 style="margin-top:9px">${esc(p.title)}</h3><p>${esc(p.description)}</p>${p.price!==""&&p.price!=null?`<div class="price">${money(p.price)}</div>`:""}<p class="muted">${p.start?"From "+esc(p.start):""}${p.end?" · Until "+esc(p.end):""}</p><button class="btn btn-light btn-small" onclick="go('menu')">Browse Menu</button></div>
+ </article>`;
+}
+function renderPromotions(){
+ const list=publishedPromos();
+ document.getElementById("promotionList").innerHTML=list.map(promoCard).join("")||`<div class="empty" style="grid-column:1/-1"><div class="emoji">🎉</div><h2>No active promotions</h2><p>There are no published offers at the moment. Check back soon!</p></div>`;
+}
+function readImage(file){
+ return new Promise((resolve,reject)=>{
+  if(!file){resolve("");return}
+  if(!file.type.startsWith("image/")){reject(new Error("Choose an image file."));return}
+  const reader=new FileReader();
+  reader.onerror=()=>reject(new Error("Could not read that image."));
+  reader.onload=()=>{
+   const original=new Image();
+   original.onerror=()=>resolve(reader.result);
+   original.onload=()=>{
+    const max=1100,scale=Math.min(1,max/Math.max(original.width,original.height));
+    const canvas=document.createElement("canvas");
+    canvas.width=Math.round(original.width*scale);canvas.height=Math.round(original.height*scale);
+    const ctx=canvas.getContext("2d");
+    ctx.drawImage(original,0,0,canvas.width,canvas.height);
+    try{resolve(canvas.toDataURL("image/jpeg",.78))}
+    catch(e){resolve(reader.result)}
+   };
+   original.src=reader.result;
+  };
+  reader.readAsDataURL(file);
+ });
+}
+document.getElementById("prodImage").addEventListener("change",async e=>{
+ try{productImageData=await readImage(e.target.files[0]);showImagePreview("productImagePreview",productImageData)}
+ catch(err){toast(err.message)}
+});
+document.getElementById("promoImage").addEventListener("change",async e=>{
+ try{promoImageData=await readImage(e.target.files[0]);showImagePreview("promoImagePreview",promoImageData)}
+ catch(err){toast(err.message)}
+});
+function showImagePreview(id,src){
+ const el=document.getElementById(id);
+ if(src){el.src=src;el.classList.remove("hidden")}else{el.removeAttribute("src");el.classList.add("hidden")}
+}
+document.getElementById("productForm").addEventListener("submit",e=>{
+ e.preventDefault();
+ const id=document.getElementById("editProductId").value||uid();
+ const name=document.getElementById("prodName").value.trim();
+ const category=document.getElementById("prodCategory").value;
+ const smallVal=document.getElementById("prodSmall").value;
+ const mediumVal=document.getElementById("prodMedium").value;
+ const priceVal=document.getElementById("prodPrice").value;
+ if(!name){toast("Enter a product name.");return}
+ if(category==="pizza"&&((smallVal!==""&&safeNumber(smallVal)<0)||(mediumVal!==""&&safeNumber(mediumVal)<0))){toast("Check the pizza prices.");return}
+ if(category==="pizza"&&(smallVal===""||mediumVal==="")&&priceVal===""){toast("Enter a price or both Small and Medium prices.");return}
+ if(category!=="pizza"&&priceVal===""){toast("Enter a product price.");return}
+ const old=products.find(p=>p.id===id);
+ const p={
+  id,name,category,
+  description:document.getElementById("prodDescription").value.trim(),
+  image:productImageData||(old&&old.image)||IMG.pizza,
+  available:document.getElementById("prodAvailable").checked
+ };
+ if(category==="pizza"&&(smallVal!==""||mediumVal!=="")){
+  p.small=Number(smallVal||0);p.medium=Number(mediumVal||0);
+ }else p.price=Number(priceVal||0);
+ const next=old?products.map(x=>x.id===id?p:x):[...products,p];
+ if(saveJSON(STORAGE.products,next)){products=next;resetProductForm();renderAdmin();renderMenu();renderHome();toast("Product saved.");}
+});
+function editProduct(id){
+ const p=products.find(x=>x.id===id);if(!p)return;
+ document.getElementById("editProductId").value=p.id;
+ document.getElementById("prodName").value=p.name;
+ document.getElementById("prodCategory").value=p.category||"pizza";
+ document.getElementById("prodPrice").value=p.price??"";
+ document.getElementById("prodSmall").value=p.small??"";
+ document.getElementById("prodMedium").value=p.medium??"";
+ document.getElementById("prodDescription").value=p.description||"";
+ document.getElementById("prodAvailable").checked=p.available!==false;
+ productImageData=p.image||"";
+ showImagePreview("productImagePreview",productImageData);
+ document.getElementById("productFormTitle").textContent="Edit product";
+ adminTab("products");document.getElementById("prodName").focus();
+}
+function resetProductForm(){
+ document.getElementById("productForm").reset();
+ document.getElementById("editProductId").value="";
+ productImageData="";showImagePreview("productImagePreview","");
+ document.getElementById("productFormTitle").textContent="Add a new product";
+}
+function deleteProduct(id){
+ const p=products.find(x=>x.id===id);if(!p)return;
+ showModal("Delete product?",`Remove "${p.name}" from the public menu?`,[
+  {label:"Cancel",className:"btn-light",action:closeModal},
+  {label:"Delete",className:"btn-red",action:()=>{
+   products=products.filter(x=>x.id!==id);saveJSON(STORAGE.products,products);
+   renderAdmin();renderMenu();renderHome();closeModal();toast("Product removed.");
+  }}
+ ]);
+}
+function toggleAvailability(id){
+ const p=products.find(x=>x.id===id);if(!p)return;
+ p.available=p.available===false;
+ saveJSON(STORAGE.products,products);renderAdmin();renderMenu();renderHome();
+ toast(p.available?"Product is available.":"Product hidden from public menu.");
+}
+document.getElementById("promoForm").addEventListener("submit",e=>{
+ e.preventDefault();
+ const id=document.getElementById("editPromoId").value||uid();
+ const title=document.getElementById("promoTitle").value.trim();
+ const description=document.getElementById("promoDescription").value.trim();
+ const price=document.getElementById("promoPrice").value;
+ const start=document.getElementById("promoStart").value;
+ const end=document.getElementById("promoEnd").value;
+ if(!title||!description){toast("Enter a promotion title and offer details.");return}
+ if(start&&end&&end<start){toast("The end date cannot be before the start date.");return}
+ const old=promos.find(p=>p.id===id);
+ const p={id,title,description,price:price===""?"":Number(price),start,end,image:promoImageData||(old&&old.image)||IMG.pizza,published:document.getElementById("promoPublished").checked};
+ const next=old?promos.map(x=>x.id===id?p:x):[p,...promos];
+ if(saveJSON(STORAGE.promos,next)){promos=next;resetPromoForm();renderAdmin();renderPromotions();renderHome();toast("Promotion saved.");}
+});
+function editPromo(id){
+ const p=promos.find(x=>x.id===id);if(!p)return;
+ document.getElementById("editPromoId").value=p.id;
+ document.getElementById("promoTitle").value=p.title;
+ document.getElementById("promoDescription").value=p.description;
+ document.getElementById("promoPrice").value=p.price??"";
+ document.getElementById("promoStart").value=p.start||"";
+ document.getElementById("promoEnd").value=p.end||"";
+ document.getElementById("promoPublished").checked=p.published!==false;
+ promoImageData=p.image||"";showImagePreview("promoImagePreview",promoImageData);
+ document.getElementById("promoFormTitle").textContent="Edit promotion";
+ adminTab("promos");document.getElementById("promoTitle").focus();
+}
+function resetPromoForm(){
+ document.getElementById("promoForm").reset();
+ document.getElementById("editPromoId").value="";
+ promoImageData="";showImagePreview("promoImagePreview","");
+ document.getElementById("promoFormTitle").textContent="Create a promotion";
+}
+function deletePromo(id){
+ showModal("Delete promotion?","This will remove the saved promotion.",[
+  {label:"Cancel",className:"btn-light",action:closeModal},
+  {label:"Delete",className:"btn-red",action:()=>{
+   promos=promos.filter(p=>p.id!==id);saveJSON(STORAGE.promos,promos);
+   renderAdmin();renderPromotions();renderHome();closeModal();toast("Promotion removed.");
+  }}
+ ]);
+}
+function togglePromo(id){
+ const p=promos.find(x=>x.id===id);if(!p)return;
+ p.published=p.published===false;saveJSON(STORAGE.promos,promos);
+ renderAdmin();renderPromotions();renderHome();toast(p.published?"Promotion published.":"Promotion unpublished.");
+}
+function adminTab(tab){
+ document.querySelectorAll(".admin-tab").forEach(el=>el.classList.toggle("active",el.dataset.admin===tab));
+ document.querySelectorAll(".admin-panel").forEach(el=>el.classList.toggle("active",el.id==="admin-"+tab));
+}
+function renderAdmin(){
+ if(!ownerUnlocked)return;
+ document.getElementById("statProducts").textContent=products.length;
+ document.getElementById("statPromos").textContent=promos.length;
+ document.getElementById("statOrders").textContent=localOrders.length;
+ document.getElementById("adminProductList").innerHTML=products.map(p=>`
+  <div class="admin-product">
+   <img src="${esc(productImage(p))}" alt="${esc(p.name)}" onerror="imageFallback(this)">
+   <div class="grow"><strong>${esc(p.name)}</strong><small>${esc(p.category)} · ${esc(productPriceLabel(p))} · ${p.available===false?"Hidden":"Available"}</small></div>
+   <button class="btn btn-light btn-small" onclick="editProduct('${esc(p.id)}')">Edit</button>
+   <button class="btn btn-light btn-small" onclick="toggleAvailability('${esc(p.id)}')">${p.available===false?"Show":"Hide"}</button>
+   <button class="remove" onclick="deleteProduct('${esc(p.id)}')">×</button>
+  </div>`).join("")||"<p>No products saved.</p>";
+ document.getElementById("adminPromoList").innerHTML=promos.map(p=>`
+  <div class="admin-product">
+   <img src="${esc(safeImage(p.image||IMG.pizza))}" alt="${esc(p.title)}" onerror="imageFallback(this)">
+   <div class="grow"><strong>${esc(p.title)}</strong><small>${p.published===false?"Unpublished":"Published"} · ${p.price!==""&&p.price!=null?money(p.price):"No offer price"}</small></div>
+   <button class="btn btn-light btn-small" onclick="editPromo('${esc(p.id)}')">Edit</button>
+   <button class="btn btn-light btn-small" onclick="togglePromo('${esc(p.id)}')">${p.published===false?"Publish":"Hide"}</button>
+   <button class="remove" onclick="deletePromo('${esc(p.id)}')">×</button>
+  </div>`).join("")||"<p>No promotions saved yet.</p>";
+ document.getElementById("adminOrderList").innerHTML=localOrders.map(o=>`
+  <div class="admin-order"><div class="grow"><strong>${esc(o.customer)} · ${money(o.total)}</strong><small>${esc(o.date)} · ${esc(o.fulfilment)} · ${esc(o.phone)}</small></div></div>`).join("")||"<p>No locally recorded orders.</p>";
+}
+function currentPin(){return loadJSON(STORAGE.pin,"0136")}
+document.getElementById("ownerLoginForm").addEventListener("submit",e=>{
+ e.preventDefault();
+ if(document.getElementById("ownerPinInput").value===String(currentPin())){
+  ownerUnlocked=true;document.getElementById("ownerPinInput").value="";go("owner");toast("Dashboard unlocked.");
+ }else{toast("Incorrect PIN. Please try again.");document.getElementById("ownerPinInput").value=""}
+});
+function ownerLogout(){ownerUnlocked=false;go("owner-login");toast("Dashboard locked.")}
+document.getElementById("changePinForm").addEventListener("submit",e=>{
+ e.preventDefault();
+ const current=document.getElementById("currentPin").value;
+ const next=document.getElementById("newPin").value;
+ const confirm=document.getElementById("confirmPin").value;
+ if(current!==String(currentPin())){toast("Your current PIN is incorrect.");return}
+ if(next.length<4){toast("Your new PIN must contain at least four characters.");return}
+ if(next!==confirm){toast("The new PINs do not match.");return}
+ if(saveJSON(STORAGE.pin,next)){
+  document.getElementById("changePinForm").reset();toast("PIN changed on this browser.");
+ }
+});
+function exportData(){
+ const data={business:"KINGZEE PIZZA",exportedAt:new Date().toISOString(),products,promos};
+ const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});
+ const url=URL.createObjectURL(blob);
+ const a=document.createElement("a");a.href=url;a.download="kingzee-website-backup.json";a.click();
+ setTimeout(()=>URL.revokeObjectURL(url),1000);
+ toast("Website data export started.");
+}
+function showModal(title,message,actions){
+ const root=document.getElementById("modalRoot");
+ root.innerHTML=`<div class="modal-backdrop" role="presentation"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><h2 id="modalTitle">${esc(title)}</h2><p>${esc(message)}</p><div class="modal-actions" id="modalActions"></div></div></div>`;
+ const box=document.getElementById("modalActions");
+ actions.forEach(a=>{
+  const b=document.createElement("button");b.className="btn "+a.className;b.textContent=a.label;b.onclick=a.action;box.appendChild(b);
+ });
+}
+function closeModal(){document.getElementById("modalRoot").innerHTML=""}
+document.getElementById("modalRoot").addEventListener("click",e=>{
+ if(e.target.classList.contains("modal-backdrop"))closeModal();
+});
+document.addEventListener("keydown",e=>{
+ if(e.key==="Escape")closeModal();
+});
+document.getElementById("year").textContent=new Date().getFullYear();
+
+/* Keep touch targets responsive without disabling normal form input. */
+document.addEventListener("click",e=>{
+ const button=e.target.closest("button");
+ if(button&&button.type!=="submit"&&button.type!=="reset"){}
+});
+
+/* Initialise the interface. */
+updateCartCount();
+renderHome();
+renderMenu();
+renderBuilder();
+renderPromotions();
+renderCart();
+</script>
+</body>
+</html>
